@@ -1,5 +1,5 @@
 const express = require('express');
-
+require('dotenv').config();
 const cors = require('cors');
 const postsRouter = require('./data/posts/posts-router.js');
 
@@ -18,6 +18,8 @@ server.get('/', (req, res) => {
   `);
 });
 
-server.listen(7000, () => {
-    console.log('\n*** Server Running on http://localhost:7000 ***\n');
+const port = process.env.PORT;
+
+server.listen(port, () => {
+    console.log(`\n*** Server Running on http://localhost:${port} ***\n`);
 });
